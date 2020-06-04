@@ -148,6 +148,12 @@ export default class RTMClient extends EventEmitter {
       return;
     }
 
+    // If client has been forced closed during fetch url,
+    // we should not continue connecting
+    if (this._state === RTMClientState.CLOSED) {
+      return;
+    }
+
     this._reconnectAttempts = 1;
     this._setConnection(new RTMConnection({
       url: wsUrl,
