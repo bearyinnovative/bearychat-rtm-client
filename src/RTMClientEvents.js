@@ -1,4 +1,5 @@
 const RTMClientEvents = {
+  CONNECTING: 'connecting',
   ONLINE: 'online',
   OFFLINE: 'offline',
   CLOSE: 'close',

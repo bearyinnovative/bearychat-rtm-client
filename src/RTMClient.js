@@ -137,6 +137,7 @@ export default class RTMClient extends EventEmitter {
 
   _doConnect = async () => {
     this._state = RTMClientState.CONNECTING;
+    this.emit(RTMClientState.CONNECTING);
 
     let wsUrl;
     const timeoutMessage = new RTMReconnectTimeoutError('Reget websocket url error');
